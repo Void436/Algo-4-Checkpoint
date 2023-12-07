@@ -1,0 +1,76 @@
+ALGORITHM palindrome
+
+
+VAR
+
+    ch: STRING;
+    z: CHAR;
+
+BEGIN
+    Write("Type a word: ");
+    Read(ch);
+
+    Write("Want to know if the word is a palindrome ? Y/N: ");
+    Read(z);
+
+    IF (z.upper=="Y") THEN
+
+        Write("Is your word a palindrome ? : ");
+        palindrome(ch:STRING);
+
+    ELSE
+        BREAK;
+
+    END_IF
+    
+END
+
+
+//recursive
+
+FUNCTION palindrome(ch:STRING) : BOOLEAN
+
+
+VAR
+    i,j : INTEGER;
+BEGIN
+    j := ch.length;
+    IF (ch.length<=1) THEN
+        RETURN TRUE;
+    ELSE_IF (ch[i]<>ch[j]) THEN
+        RETURN FALSE;
+    ELSE
+        RETURN palindrome(ch:STRING;i := i+1;j := j-1;);
+    END_IF
+
+END
+
+//iterative
+
+
+FUNCTION palindrome(ch:STRING) : BOOLEAN
+
+
+VAR
+
+    bool: BOOLEAN;
+    i,j ;  INTEGER;
+
+BEGIN
+
+    bool := TRUE;
+    j := (ch.length)-1;
+
+    FOR i FROM 0 TO ((ch.length)-1)/2 STEP 1 DO
+
+        IF (ch[i]<>ch[j]) THEN
+            bool := FALSE;
+        END_IF
+
+        j := j-1;
+
+    END_FOR
+
+    RETURN bool ;
+
+END
